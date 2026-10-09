@@ -1,0 +1,19 @@
+# Large dataset files (download from Kaggle: tmdb/tmdb-movie-metadata)
+tmdb_5000_credits.csv
+
+# Generated outputs
+weekly_market_synthesized.csv
+_run_log.txt
+
+# Duplicate notebook copies
+*Copy.ipynb
+
+# Python / Jupyter
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
