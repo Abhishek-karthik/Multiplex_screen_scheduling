@@ -12,6 +12,26 @@
 
 ---
 
+## Status — implemented (12 Oct 2026)
+
+Phases U0–U8 are done. Run the app with:
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+* **U0:** `engine/` package; the notebook imports it; `tests/test_engine.py` (18 tests) proves the extraction changed nothing.
+* **U1–U8:** 12 pages under `app/views/` (Overview · Data & statistics · Market & demand · Models 1–4 · What-if · Compare & validate · Sensitivity lab · Final plan & export · Under the hood).
+  * The sidebar holds the scenario and a live chain status; every result is keyed by its input hash, with stale detection.
+  * `tests/test_app.py` (8 `AppTest` tests): every page renders, each model solves from its own page, the full chain gives the report's numbers, an infeasible budget is reported rather than raised, and the Stats Builder works.
+  * Checked in a real browser: solver panels, grid, Gantt, Sankey, AHP inputs, waterfall and the S6 sweep.
+* **Differences from the plan below:**
+  * Each model page solves Models 1…k (`run_chain(upto=k)`) instead of storing every stage separately. This is simpler, and it is honest about the dependency (the solve button's tooltip says so).
+  * The Model 4 trade-off curve (S4) lives on the Model 4 page.
+  * The Excel export was dropped in favour of CSV and JSON downloads, so that no extra dependency is needed.
+
+---
+
 ## 0. TL;DR
 
 - **Don't build the UI inside the notebook.** Extract the notebook's functions into a small Python package, `engine/`, as the single source of truth. The notebook and the app both import it, and a parity test checks that both produce the same numbers.

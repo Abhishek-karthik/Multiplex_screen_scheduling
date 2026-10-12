@@ -56,8 +56,13 @@ class ChainResult:
         return None if self.m4 is None else self.m4.get('schedule')
 
 
-def run_chain(clean, cfg=None, licensed=None, weights=None, baselines=True):
+STAGES = ['m1', 'm2', 'm3', 'm4']
+
+
+def run_chain(clean, cfg=None, licensed=None, weights=None, baselines=True, upto='m4'):
     # Full chain for one configuration. licensed: optional manual film choice (what-if) that replaces Model 1.
+    # upto: stop after this model ('m1' … 'm4'); baselines and validation need the full chain.
+    assert upto in STAGES, upto
     cfg = default_config() if cfg is None else cfg
     r = ChainResult(cfg=cfg, manual_licensing=licensed is not None)
 
@@ -91,18 +96,24 @@ def run_chain(clean, cfg=None, licensed=None, weights=None, baselines=True):
         if not lic:
             return fail('Model 1', 'no schedulable film was chosen')
         r.licensed = lic
+    if upto == 'm1':
+        return r
 
     r.m2 = timed('M2', lambda: solve_transportation(r.films, r.licensed, r.dem, cfg))
     if r.m2['status'] != 'Optimal':
         return fail('Model 2', r.m2['status'])
     r.prefs = r.m2['prefs'] if cfg.get('use_c7', True) else None
     r.quota = r.m2['quota_matrix']
+    if upto == 'm2':
+        return r
 
     r.m3 = timed('M3', lambda: solve_assignment(r.films, r.licensed, r.dem, r.prefs, cfg))
     if r.m3['status'] != 'Optimal':
         return fail('Model 3', r.m3['status'])
     r.R_star = r.m3['R_star']
     r.k_m3 = kpis(r.m3['schedule'], r.films, cfg, r.licensed, r.quota)
+    if upto == 'm3':
+        return r
 
     r.targets = goal_targets(r.k_m3, r.quota.shape[1], r.R_star, cfg)
     r.weights = dict(weights if weights is not None else cfg['gp_weights'])

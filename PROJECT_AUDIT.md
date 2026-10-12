@@ -11,6 +11,24 @@
 
 ---
 
+## Status update — recommendations implemented (12 Oct 2026)
+
+| Item | Status | Where | Result |
+|---|---|---|---|
+| A1 User interface | ✅ Done | `app/` (Streamlit, 12 pages), `tests/test_app.py` | Load data + statistics on demand; each of M1–M4 solvable on its own page; what-if; compare; sensitivity lab; final plan export; source and `.lp` viewer |
+| A2 Final deck | ⏳ Open | — | Still to do (Phase 9) |
+| A3 Commit | ✅ Done | branch `ramesh` | Work committed (not pushed) |
+| B1 Price of the variety policy | ✅ Done | notebook 6.4 + 12.6 (S6); app Sensitivity lab | The 8-film rule costs ₹44,251/day (9.5%); free up to 6 films |
+| B2 Fees and budget halved | ✅ Done | `engine/config.py`; notebook Section 14 | Identical decisions in 14/14 checked runs (plus 36 runs in development); weekly gross / licensing 0.72 → 1.46 |
+| B3 Film-level quotas | ✅ Done | `engine/models.py` (`quota_rule='film'`) | Price of balance 1.47% → **0.83%** (the 0.42% in Appendix A came from a probe that solved to a different, equally optimal transportation plan); quota deviation 2 → 0 |
+| B4 Honest framing | ✅ Done | notebook 9.3, 11.1, conclusion; app M4 and Compare pages | The weighted deviation is labelled as Model 4's own objective; the evidence is the per-goal changes |
+| C1 AHP weights | ✅ Done | `engine/ahp.py`, `AHP_JUDGMENTS`; notebook 9.1; app M4 page (interactive) | CR = 0.004; weights G1 0.399 · G6 0.190 · G5 0.170 · G2/G3 0.095 · G4 0.051; same schedule as before this week |
+| C2 Sensitivity reports | ✅ Done | `engine/analysis.py`; notebook 6.4, 7.2; app M1/M2 pages | Exact ranging from the LP optimality conditions, verified by brute-force re-solves in `tests/test_engine.py`; shows alternative optima in Model 2 |
+
+Final main-week numbers: R\* ₹4,19,711; final plan ₹4,16,230 (+61.8% vs naive); 9 of 10 test weeks won; all schedules pass validation. The engine reproduces the first version's numbers exactly when run with `PRE_REVIEW_OVERRIDES` (tested).
+
+---
+
 ## 0. Verdict at a glance
 
 **Overall.** The OR core is **complete, strong and genuine**. Four correctly formulated models, solved exactly, chained in code, validated, benchmarked against two baselines, and stress-tested end to end. The honesty of the reporting is unusually good for a semester project.

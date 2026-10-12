@@ -17,6 +17,7 @@ from .metrics import (kpis, make_schedule, minutes_to_clock, n_screens, n_slots,
 from .models import (binding_table, build_assignment_core, chosen_cells, film_quotas, fmt_goal_value, genre_quotas,
                      goal_report, goal_targets, greedy_knapsack, solve_assignment, solve_goal_program, solve_knapsack,
                      solve_transportation, transport_costs)
-from .pipeline import ChainResult, chain_summary, revenue_bridge, run_chain, run_pipeline, sweep
+from .pipeline import STAGES, ChainResult, chain_summary, revenue_bridge, run_chain, run_pipeline, sweep
+from . import formulations  # noqa: F401  (LaTeX formulations shown by the app)
 
 __version__ = '1.0.0'
