@@ -1,0 +1,8 @@
+constraint,final value,sense,shadow price,right-hand side,allowable increase,allowable decrease
+K1 budget,1999999.997345,≤,0.27285253,2000000.0,186000.0,495500.0
+K2 min films,8.0,≥,-24485.746,8.0,0.6205385097056982,0.23293675641828426
+K2 max films,8.0,≤,0.0,12.0,inf,4.0
+K3 action-like,5.0,≥,0.0,1.0,4.0,inf
+K4 family,2.27292737,≥,0.0,1.0,1.272927366104182,inf
+K6 unschedulable 3,0.0,=,22993.219,0.0,0.3438077634011088,0.0
+K6 unschedulable 9,0.0,=,0.0,0.0,0.0,0.0
