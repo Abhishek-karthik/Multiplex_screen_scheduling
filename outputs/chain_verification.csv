@@ -1,0 +1,7 @@
+from,output,consumed by,evidence,verified
+Demand model,"D, att, occ, rev, spill tensors","M1 value, M2 cost, M3/M4 objective","films value = Σ P·min(D, C_ref); M3 R* = Σ rev·a = ₹419,711",True
+Model 1 (Knapsack),licensed films (8),"M2 quotas, M3/M4 variables a[i,j,s] (i ∈ licensed)",M2 quota covers 8 films; M3 variables = 8×6×5 = 240,True
+Model 2 (Transportation),preferred_genre[s],M3 and M4 hard constraint C7,validator check 8 on M3 and M4,True
+Model 2 (Transportation),"quota matrix x[s,g]",M4 goal G6,quota deviation: M3 41 shows → M4 2 shows,True
+Model 3 (Assignment),R* and achieved KPIs,"M4 goal targets (G1 = R*, G2–G5 from M3)","G1 target ₹419,711; G4 target 53.0 min = M3 idle − 5",True
+Model 4 (Goal programming),final schedule + goal report,"final operating plan (Section 13), comparison (Section 11)","30 shows, revenue ₹413,524, all hard constraints pass",True
