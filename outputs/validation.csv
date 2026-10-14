@@ -1,0 +1,37 @@
+schedule,check,scope,result,detail
+B1 Naive popularity,1 At most one film per screen-slot,physical,PASS,0 clashes
+B1 Naive popularity,2 Runtime + cleanup ≤ slot length,physical,PASS,longest show 130+20 min vs 180 min
+B1 Naive popularity,3 No simultaneous duplicate (simulcast),physical,PASS,0 simulcasts
+B1 Naive popularity,4 Showings per film ≤ K_MAX,physical,PASS,max 5 vs 5
+B1 Naive popularity,5 Operating screens per slot ≥ M_MIN,physical,PASS,min 5 vs 4
+B1 Naive popularity,6 Only licensed films shown,plan,PASS,0 unlicensed
+B1 Naive popularity,7 Every licensed film shown,plan,PASS,0 licensed but unused
+B1 Naive popularity,8 Preferred genre on each screen (Model 2),plan,n/a,
+B1 Naive popularity,9 Licensing cost ≤ budget,plan,PASS,"₹1,613,500 vs ₹2,000,000"
+B2 Greedy manager,1 At most one film per screen-slot,physical,PASS,0 clashes
+B2 Greedy manager,2 Runtime + cleanup ≤ slot length,physical,PASS,longest show 134+20 min vs 180 min
+B2 Greedy manager,3 No simultaneous duplicate (simulcast),physical,PASS,0 simulcasts
+B2 Greedy manager,4 Showings per film ≤ K_MAX,physical,PASS,max 5 vs 5
+B2 Greedy manager,5 Operating screens per slot ≥ M_MIN,physical,PASS,min 4 vs 4
+B2 Greedy manager,6 Only licensed films shown,plan,PASS,0 unlicensed
+B2 Greedy manager,7 Every licensed film shown,plan,PASS,0 licensed but unused
+B2 Greedy manager,8 Preferred genre on each screen (Model 2),plan,n/a,
+B2 Greedy manager,9 Licensing cost ≤ budget,plan,PASS,"₹1,999,500 vs ₹2,000,000"
+M3 Revenue optimum,1 At most one film per screen-slot,physical,PASS,0 clashes
+M3 Revenue optimum,2 Runtime + cleanup ≤ slot length,physical,PASS,longest show 134+20 min vs 180 min
+M3 Revenue optimum,3 No simultaneous duplicate (simulcast),physical,PASS,0 simulcasts
+M3 Revenue optimum,4 Showings per film ≤ K_MAX,physical,PASS,max 5 vs 5
+M3 Revenue optimum,5 Operating screens per slot ≥ M_MIN,physical,PASS,min 4 vs 4
+M3 Revenue optimum,6 Only licensed films shown,plan,PASS,0 unlicensed
+M3 Revenue optimum,7 Every licensed film shown,plan,PASS,0 licensed but unused
+M3 Revenue optimum,8 Preferred genre on each screen (Model 2),plan,PASS,all screens
+M3 Revenue optimum,9 Licensing cost ≤ budget,plan,PASS,"₹1,999,500 vs ₹2,000,000"
+M4 Goal programming (final),1 At most one film per screen-slot,physical,PASS,0 clashes
+M4 Goal programming (final),2 Runtime + cleanup ≤ slot length,physical,PASS,longest show 134+20 min vs 180 min
+M4 Goal programming (final),3 No simultaneous duplicate (simulcast),physical,PASS,0 simulcasts
+M4 Goal programming (final),4 Showings per film ≤ K_MAX,physical,PASS,max 5 vs 5
+M4 Goal programming (final),5 Operating screens per slot ≥ M_MIN,physical,PASS,min 5 vs 4
+M4 Goal programming (final),6 Only licensed films shown,plan,PASS,0 unlicensed
+M4 Goal programming (final),7 Every licensed film shown,plan,PASS,0 licensed but unused
+M4 Goal programming (final),8 Preferred genre on each screen (Model 2),plan,PASS,all screens
+M4 Goal programming (final),9 Licensing cost ≤ budget,plan,PASS,"₹1,999,500 vs ₹2,000,000"

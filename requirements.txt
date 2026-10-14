@@ -1,0 +1,19 @@
+# Multiplex Screen Scheduling — OR project (Group 14)
+# Tested with Python 3.13.5, pandas 2.3.1, numpy 2.5.2, matplotlib 3.10.5, seaborn 0.13.2,
+# PuLP 2.9.0 (bundled CBC solver), scipy 1.18.0, streamlit 1.65.0, plotly 7.1.0, nbconvert 7.17.0, pytest 9.0.2.
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.13
+# PuLP 3.x/4.x removed LpVariable.dicts and changed the API used here — keep below 3.
+pulp>=2.7,<3
+# HiGHS LP solver used for the sensitivity reports (engine/analysis.py)
+scipy>=1.11
+# interactive app (app/)
+streamlit>=1.36
+plotly>=5.20
+# notebook and tests
+jupyter>=1.0
+ipykernel>=6.0
+nbconvert>=7.0
+pytest>=7.0
